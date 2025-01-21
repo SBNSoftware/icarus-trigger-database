@@ -1,0 +1,17 @@
+{
+  "database": {
+    "name": "icarus_trigger_prd",
+    "host": "icarus-db02.fnal.gov",
+    "port": 5434
+  },
+  "logging": {
+    "logpath": "/daq/log/triggerdb/",
+    "level": "INFO",
+    "format": "%(levelname)s %(asctime)s: %(message)s",
+    "datefmt": "%a %b %d %H:%M:%S %Z %Y"
+  },
+  "input": {
+    "directory": "/home/nfs/icarus/TriggerLogBackup/",
+    "queries": "/home/nfs/icarus/triggerDB/sql/"
+  }
+}
