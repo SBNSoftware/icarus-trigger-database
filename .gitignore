@@ -1,1 +1,3 @@
 pyenv/*
+test*/
+tool/__pycached__/*
