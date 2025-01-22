@@ -37,11 +37,23 @@ The `triggerdata` table encapsulates all information that exists at the per-trig
 |`cryo1_east_counts` | integer | Counters of other activity in coincidence with the gate (other potential global triggers in the event) for the East cryostat ||
 |`cryo2_west_count`  | integer | Counters of other activity in coincidence with the gate (other potential global triggers in the event) for the Wast cryostat ||
 |`mj_adder_source_east` | integer | Enumeration of trigger source in the East cryostat, specifically adder vs. majority (1: adders, 2: majority, 7: both) | `-1` |
-|`mj_adder_source_west` | integer | - Enumeration of trigger source in the West cryostat, specifically adder vs. majority (1: adders, 2: majority, 7: both) | `-1` |
-|`flag_east`  | integer || `-1` |
-|`delay_east` | integer || `-1` |
-|`flag_west`  | integer || `-1` |
-|`delay_west` | integer || `-1` |
+|`mj_adder_source_west` | integer | Enumeration of trigger source in the West cryostat, specifically adder vs. majority (1: adders, 2: majority, 7: both) | `-1` |
+|`flag_east`  | integer | Flags true if a trigger was detected in the East cryostat | `-1` |
+|`delay_east` | integer | Delay of the East trigger from the start of the beam gate in FPGA ticks (default: 90) | `-1` |
+|`flag_west`  | integer | Flags true if a trigger was detected in the West cryostat | `-1` |
+|`delay_west` | integer | Delay of the West trigger from the start of the beam gate in FPGA ticks (default: 90) | `-1` |
+
+### Trigger log
+The `triggerlog` table contains metadata associated with each trigger log file. 
+It is used internally to keep track of log files that have been processed already.
+
+| Column  | Type | Description |
+| ------- | ---- | ----------- |
+|`log_name`  | text    | The name of the log file  |
+|`stub`      | bool    | Boolean tagging the log file as containing no actual triggers |
+|`file_size` | integer | Size of the file on disk |
+|`run_number`| integer | Run number corresponding to the log file |
+|`processed` | bool    | Boolean tagging the log file as processed/not processed |
 
 ## Credits
 This repository builds upon work from [https://github.com/justinjmueller/icarus_runinfo_database](https://github.com/justinjmueller/icarus_runinfo_database) created by [Justin Mueller](https://github.com/justinjmueller).
