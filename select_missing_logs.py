@@ -16,7 +16,12 @@ def scan_trigger_log(conn, log_directory, no_match_directory):
     log_files = glob(f'{log_directory}*')
     for f in log_files:
         log_name = f.split('/')[-1] 
-        lines = open_trigger_log(f)
+        lines = []
+        try:
+            lines = open_trigger_log(f)
+        except Exception as e:
+            print(str(e))
+            continue
         runs = [x for x in lines if 'Completed the Start transition (Started run) for run ' in x]
         if(len(runs)<1):
             print(f'{log_name} has no run number!')
