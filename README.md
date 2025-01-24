@@ -3,6 +3,10 @@ This repository organizes code that is used for extracting information from trig
 The main script `runFillTriggerDatabase.sh` runs daily as a cronjob in the online cluster and scans the backup trigger logfile directory for new files to parse.
 Future plans involve moving the filling operation inside the DAQ itself through an analyzer module for maximum reliablity. 
 
+## Credits
+This repository builds upon work from [https://github.com/justinjmueller/icarus_runinfo_database](https://github.com/justinjmueller/icarus_runinfo_database) created by [Justin Mueller](https://github.com/justinjmueller).
+A few changes have been made to interface with the 'official' PostgreSQL database, but the original idea and logic behind the scripts belongs to Justin Mueller.
+
 ## Tables
 ### Trigger Data
 The `triggerdata` table encapsulates all information that exists at the per-trigger level. It corresponds to the contents of the trigger TCP/IP packet.
@@ -54,7 +58,3 @@ It is used internally to keep track of log files that have been processed alread
 |`file_size` | integer | Size of the file on disk |
 |`run_number`| integer | Run number corresponding to the log file |
 |`processed` | bool    | Boolean tagging the log file as processed/not processed |
-
-## Credits
-This repository builds upon work from [https://github.com/justinjmueller/icarus_runinfo_database](https://github.com/justinjmueller/icarus_runinfo_database) created by [Justin Mueller](https://github.com/justinjmueller).
-A few changes have been made to interface with the 'official' PostgreSQL database, but the original idea and logic behind the scripts belongs to Justin Mueller.
